@@ -13,6 +13,7 @@ config.read("cfg\\currectGame.ini")
 gamenumber = config["CurrectGame"]["GameNumber"]
 proccesname = config[gamenumber]["ProccesName"]
 if proccesname == "NONE.NONE":
+    startfile(r'Nightmare.exe')
     sys.exit("указан NONE.NONE")
 times = config["TimeToStartTheGameWithAMargin"]["TimeInSeconds"]
 rate = config["HowManyTimesDoesItTakeMoreTimeFromTheFirstLaunch"]["rate"]
