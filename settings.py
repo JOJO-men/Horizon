@@ -27,8 +27,7 @@ if input("сброс картинок(1) или полная настройка(
             file_name=f"Game{i}.lnk",
             target=str(path),
             work_dir=str(path.parent),
-            arguments='',
-        )
+            arguments='',)
         config = configparser.ConfigParser()
         config.read('main\\cfg\\correctGame.ini')
         config[f'Game{i}']['ProccesName'] = input("имя процесса (можно посмотреть в диспетчере задач): ")
@@ -45,8 +44,7 @@ if input("сброс картинок(1) или полная настройка(
             file_name=f"web{i}.lnk",
             target=str(path),
             work_dir=str(path.parent),
-            arguments='',
-        )
+            arguments='',)
         config = configparser.ConfigParser()
         config.read('main\\cfg\\correctGame.ini')
         config[f'Game{i}']['ProccesName'] = input("имя процесса (можно посмотреть в диспетчере задач): ")

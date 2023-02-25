@@ -28,7 +28,6 @@ filename = 'main\\sounds\\updating.wav'
 
 try:
     response = get("https://api.github.com/repos/JOJO-men/Horizon/releases/latest")
-
     if response.json()["published_at"] == f.read():
         startfile('main\\Nightmare.exe')
         f.close()
