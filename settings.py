@@ -28,10 +28,14 @@ if input("сброс картинок(1) или полная настройка(
             target=str(path1),
             work_dir=str(path1.parent),
             arguments='',)
+        with open('main\\cfg\\ConfigGames.ini', 'w') as configfile:
+            config.write(configfile)
         config = configparser.ConfigParser()
         config.read('main\\cfg\\currectGame.ini')
         config[f'Game{i}']['ProccesName'] = input("имя процесса (можно посмотреть в диспетчере задач): ")
         copyfile(input("путь до превьюшки(фона кнопки)(обязательно .png): "), f'main\\icons\\game{i}.png')
+        with open('main\\cfg\\currectGame.ini', 'w') as configfile:
+            config.write(configfile)
 
     for i in range(1, 5):
         config = configparser.ConfigParser()
@@ -45,10 +49,14 @@ if input("сброс картинок(1) или полная настройка(
             target=str(path1),
             work_dir=str(path1.parent),
             arguments='',)
+        with open('main\\cfg\\ConfigGames.ini', 'w') as configfile:  # save
+            config.write(configfile)
         config = configparser.ConfigParser()
         config.read('main\\cfg\\currectGame.ini')
         config[f'Game{i}']['ProccesName'] = input("имя процесса (можно посмотреть в диспетчере задач): ")
         copyfile(input("путь до превьюшки(фона кнопки)(обязательно .png): "), f'main\\icons\\web{i}.png')
+        with open('main\\cfg\\currectGame.ini', 'w') as configfile:  # save
+            config.write(configfile)
     startfile('main\\Nightmare.exe')
 else:
     for f in listdir("main\\icons"):
