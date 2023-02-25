@@ -13,7 +13,7 @@ config.read("cfg\\currectGame.ini")
 gamenumber = config["CurrectGame"]["GameNumber"]
 proccesname = config[gamenumber]["ProccesName"]
 if proccesname == "NONE.NONE":
-    exit()
+    sys.exit("указан NONE.NONE")
 times = config["TimeToStartTheGameWithAMargin"]["TimeInSeconds"]
 rate = config["HowManyTimesDoesItTakeMoreTimeFromTheFirstLaunch"]["rate"]
 sleep(float(times) * int(rate))

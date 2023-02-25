@@ -22,8 +22,7 @@ except FileNotFoundError:
     except FileNotFoundError:
         f = open('FatalErrorDownloading.ini', 'w+')
         f.close()
-        exit()
-    exit()
+    sys.exit("Done install")
 filename = 'main\\sounds\\updating.wav'
 
 try:
@@ -110,15 +109,13 @@ try:
         except FileNotFoundError:
             f = open('FatalErrorDownloading.ini', 'w+')
             f.close()
-            exit()
+
 
 except BaseException:
     try:
         startfile('main\\Nightmare.exe')
         f = open('FatalErrorDownloading.ini', 'w+')
         f.close()
-        exit()
     except FileNotFoundError:
         f = open('FatalErrorDownloading.ini', 'w+')
         f.close()
-        exit()
