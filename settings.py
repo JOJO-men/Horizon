@@ -22,11 +22,11 @@ if input("сброс картинок(1) или полная настройка(
         print(f"настройка {i} игры")
         config[f'Game{i}']['IsOnline'] = '"true"' if input("игре нужен интернет (да/нет): ") == "да" else '"false"'
         config[f'Game{i}']['Name'] = input("название игры: ")
-        path = Path(input("путь до ярлыка игры или exe файла игры: "))
+        path1 = Path(input("путь до ярлыка игры или exe файла игры: "))
         create_shortcut(
             file_name=f"Game{i}.lnk",
-            target=str(path),
-            work_dir=str(path.parent),
+            target=str(path1),
+            work_dir=str(path1.parent),
             arguments='',)
         config = configparser.ConfigParser()
         config.read('main\\cfg\\correctGame.ini')
@@ -39,11 +39,11 @@ if input("сброс картинок(1) или полная настройка(
         print("\n\n\n\n\n")
         print(f"настройка {i} сайта")
         config[f'Web{i}']['Name'] = input("название игры: ")
-        path = Path(input("url ссылка: "))
+        path1 = Path(input("url ссылка: "))
         create_shortcut(
             file_name=f"web{i}.lnk",
-            target=str(path),
-            work_dir=str(path.parent),
+            target=str(path1),
+            work_dir=str(path1.parent),
             arguments='',)
         config = configparser.ConfigParser()
         config.read('main\\cfg\\correctGame.ini')
