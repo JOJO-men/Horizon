@@ -84,6 +84,5 @@ try:
             move(f"textweb{i}.png", "main\\icons")
 
         startfile('main\\Nightmare.exe')
-
 except:
     pass
