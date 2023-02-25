@@ -57,7 +57,6 @@ if input("сброс картинок(1) или полная настройка(
         copyfile(input("путь до превьюшки(фона кнопки)(обязательно .png): "), f'main\\icons\\web{i}.png')
         with open('main\\cfg\\currectGame.ini', 'w') as configfile:  # save
             config.write(configfile)
-    startfile('main\\Nightmare.exe')
 else:
     for f in listdir("main\\icons"):
         remove(path.join("main\\icons", f))
@@ -71,4 +70,4 @@ else:
         print("\n\n\n\n\n")
         print(f"настройка {i} сайта")
         copyfile(input("путь до превьюшки(фона кнопки)(обязательно .png): "), f'main\\icons\\web{i}.png')
-        startfile('main\\Nightmare.exe')
+startfile('Nightmare.lnk')

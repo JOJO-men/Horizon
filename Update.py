@@ -42,7 +42,7 @@ try:
     online = response.json()["published_at"]
     offline = f.read()
     if str(online) == str(offline):
-        startfile('main\\Nightmare.exe')
+        startfile('Nightmare.lnk')
         f.close()
     elif str(online) != str(offline):
         PlaySound(filename, SND_FILENAME)
