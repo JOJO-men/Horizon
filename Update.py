@@ -50,63 +50,40 @@ try:
             pass
         rmtree(real_path)
         Repo.clone_from('https://github.com/JOJO-men/Horizon', 'main')
-        try:
-            try:
-                move("main\\settings.exe", getcwd())
-            except FileNotFoundError:
-                pass
-            try:
-                move("ConfigGames.ini", "main\\cfg")
-            except FileNotFoundError:
-                pass
-            try:
-                move("currectGame.ini", "main\\cfg")
-            except FileNotFoundError:
-                pass
-            try:
-                for i in range(1, 9):
-                    move(f"game{i}.lnk", "main\\games")
-            except FileNotFoundError:
-                pass
-            try:
-                for i in range(1, 5):
-                    move(f"web{i}.lnk", "main\\games")
-            except FileNotFoundError:
-                pass
-            try:
-                for i in range(1, 9):
-                    move(f"game{i}.png", "main\\icons")
-            except FileNotFoundError:
-                pass
-            try:
-                for i in range(1, 5):
-                    move(f"web{i}.png", "main\\icons")
-            except FileNotFoundError:
-                pass
-            try:
-                for i in range(1, 9):
-                    move(f"textgame{i}.png", "main\\icons")
-            except FileNotFoundError:
-                pass
-            try:
-                for i in range(1, 5):
-                    move(f"textweb{i}.png", "main\\icons")
-            except FileNotFoundError:
-                pass
-            startfile('main\\Nightmare.exe')
-        except FileNotFoundError as e:
-            f = open('FatalErrorDownloading.ini', 'w+')
-            f.write(str(e))
-            f.close()
 
 
-except BaseException as e:
-    try:
+        move("main\\settings.exe", getcwd())
+
+
+        move("ConfigGames.ini", "main\\cfg")
+
+
+        move("currectGame.ini", "main\\cfg")
+
+        for i in range(1, 9):
+            move(f"game{i}.lnk", "main\\games")
+
+
+        for i in range(1, 5):
+            move(f"web{i}.lnk", "main\\games")
+
+
+        for i in range(1, 9):
+            move(f"game{i}.png", "main\\icons")
+
+
+        for i in range(1, 5):
+            move(f"web{i}.png", "main\\icons")
+
+
+        for i in range(1, 9):
+            move(f"textgame{i}.png", "main\\icons")
+
+
+        for i in range(1, 5):
+            move(f"textweb{i}.png", "main\\icons")
+
         startfile('main\\Nightmare.exe')
-        f = open('FatalErrorDownloading.ini', 'w+')
-        f.write(str(e))
-        f.close()
-    except FileNotFoundError as e:
-        f = open('FatalErrorDownloading.ini', 'w+')
-        f.write(str(e))
-        f.close()
+
+except:
+    pass
