@@ -3,19 +3,7 @@ from requests import get
 from os import startfile, path, getcwd, listdir, system, remove
 from shutil import move
 from winsound import PlaySound, SND_FILENAME
-from pathlib import Path
 import sys
-from win32com.client import Dispatch
-
-
-def create_shortcut(file_name: str, target: str, work_dir: str, arguments: str = ''):
-    shell = Dispatch('WScript.Shell')
-    shortcut = shell.CreateShortCut(path.join(f"{getcwd()}\\main\\games\\", file_name))
-    shortcut.TargetPath = target
-    shortcut.Arguments = arguments
-    shortcut.WorkingDirectory = work_dir
-    shortcut.save()
-
 
 sys.stdout = open("outputUpdate.txt", 'w+')
 
@@ -42,7 +30,7 @@ try:
     online = response.json()["published_at"]
     offline = f.read()
     if str(online) == str(offline):
-        startfile('Nightmare.lnk')
+        startfile('main\\Nightmare.exe')
         f.close()
     elif str(online) != str(offline):
         PlaySound(filename, SND_FILENAME)
@@ -131,13 +119,8 @@ try:
                     move(f"textweb{i}.png", "main\\icons")
             except FileNotFoundError:
                 pass
-            path1 = Path(f"{getcwd()}\\main\\Nightmare.exe")
-            create_shortcut(
-                file_name=f"Nightmare.lnk",
-                target=str(path1),
-                work_dir=str(path1.parent),
-                arguments='')
-            startfile('Nightmare.lnk')
+
+            startfile('main\\Nightmare.exe')
         except FileNotFoundError as e:
             f = open('FatalErrorDownloading.ini', 'w+')
             f.write(str(e))

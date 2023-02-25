@@ -70,4 +70,4 @@ else:
         print("\n\n\n\n\n")
         print(f"настройка {i} сайта")
         copyfile(input("путь до превьюшки(фона кнопки)(обязательно .png): "), f'main\\icons\\web{i}.png')
-startfile('Nightmare.lnk')
+startfile('main\\Nightmare.exe')
