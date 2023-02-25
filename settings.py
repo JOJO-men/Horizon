@@ -29,7 +29,7 @@ if input("сброс картинок(1) или полная настройка(
             work_dir=str(path1.parent),
             arguments='',)
         config = configparser.ConfigParser()
-        config.read('main\\cfg\\correctGame.ini')
+        config.read('main\\cfg\\currectGame.ini')
         config[f'Game{i}']['ProccesName'] = input("имя процесса (можно посмотреть в диспетчере задач): ")
         copyfile(input("путь до превьюшки(фона кнопки)(обязательно .png): "), f'main\\icons\\game{i}.png')
 
@@ -46,7 +46,7 @@ if input("сброс картинок(1) или полная настройка(
             work_dir=str(path1.parent),
             arguments='',)
         config = configparser.ConfigParser()
-        config.read('main\\cfg\\correctGame.ini')
+        config.read('main\\cfg\\currectGame.ini')
         config[f'Game{i}']['ProccesName'] = input("имя процесса (можно посмотреть в диспетчере задач): ")
         copyfile(input("путь до превьюшки(фона кнопки)(обязательно .png): "), f'main\\icons\\web{i}.png')
     startfile('main\\Nightmare.exe')
