@@ -291,8 +291,8 @@ if __name__ == '__main__':
     # окно
     window.title("Absolute")
     window.geometry('1365x768')
-    # window.overrideredirect(True)
-    # window.state('zoomed')
+    window.overrideredirect(True)
+    window.state('zoomed')
 
     if path.exists("first_launch.txt"):
         try:
@@ -735,7 +735,7 @@ if __name__ == '__main__':
     if internet == 1:
         webBtn4 = Button(window, command=startweb4, image=web4, height=102, width=310, compound="center")
         webBtn4.place(x=1003, y=367)
-        nameweb4 = Label(window, text=config["Web4 "]["Name"], font=10, borderwidth=0,
+        nameweb4 = Label(window, text=config["Web4"]["Name"], font=10, borderwidth=0,
                          fg="#ffffff", image=textweb4, anchor='w', compound="center")
         nameweb4.place(x=1004, y=440)
 

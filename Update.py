@@ -19,18 +19,21 @@ except FileNotFoundError:
     try:
         move("main\\settings.exe", getcwd())
         startfile('settings.exe')
-    except FileNotFoundError:
+    except FileNotFoundError as e:
         f = open('FatalErrorDownloading.ini', 'w+')
+        f.write(str(e))
         f.close()
     sys.exit("Done install")
 filename = 'main\\sounds\\updating.wav'
 
 try:
     response = get("https://api.github.com/repos/JOJO-men/Horizon/releases/latest")
-    if response.json()["published_at"] == f.read():
+    online = response.json()["published_at"]
+    offline = f.read()
+    if str(online) == str(offline):
         startfile('main\\Nightmare.exe')
         f.close()
-    elif response.json()["published_at"] != f.read():
+    elif str(online) != str(offline):
         PlaySound(filename, SND_FILENAME)
         f.close()
         move("main\\cfg\\ConfigGames.ini", getcwd())
@@ -50,72 +53,57 @@ try:
         try:
             move("main\\settings.exe", getcwd())
             try:
-                move(getcwd(), "main\\cfg\\")
+                move("ConfigGames.ini", "main\\cfg")
             except FileNotFoundError:
                 pass
             try:
-                move(getcwd(), "main\\cfg\\")
+                move("currectGame.ini", "main\\cfg")
             except FileNotFoundError:
                 pass
             try:
-                move("game1.lnk", "main\\games\\")
+                for i in range(1, 9):
+                    move(f"game{i}.lnk", "main\\games")
             except FileNotFoundError:
                 pass
             try:
-                move("game2.lnk", "main\\games\\")
+                for i in range(1, 5):
+                    move(f"web{i}.lnk", "main\\games")
             except FileNotFoundError:
                 pass
             try:
-                move("game3.lnk", "main\\games\\")
+                for i in range(1, 9):
+                    move(f"game{i}.png", "main\\icons")
             except FileNotFoundError:
                 pass
             try:
-                move("game4.lnk", "main\\games\\")
+                for i in range(1, 5):
+                    move(f"web{i}.png", "main\\icons")
             except FileNotFoundError:
                 pass
             try:
-                move("game5.lnk", "main\\games\\")
+                for i in range(1, 9):
+                    move(f"textgame{i}.png", "main\\icons")
             except FileNotFoundError:
                 pass
             try:
-                move("game6.lnk", "main\\games\\")
+                for i in range(1, 5):
+                    move(f"textweb{i}.png", "main\\icons")
             except FileNotFoundError:
                 pass
-            try:
-                move("game7.lnk", "main\\games\\")
-            except FileNotFoundError:
-                pass
-            try:
-                move("game8.lnk", "main\\games\\")
-            except FileNotFoundError:
-                pass
-            try:
-                move("web1.lnk", "main\\games\\")
-            except FileNotFoundError:
-                pass
-            try:
-                move("web2.lnk", "main\\games\\")
-            except FileNotFoundError:
-                pass
-            try:
-                move("web3.lnk", "main\\games\\")
-            except FileNotFoundError:
-                pass
-            try:
-                move("web4.lnk", "main\\games\\")
-            except FileNotFoundError:
-                pass
-            startfile('settings.exe')
-        except FileNotFoundError:
+            startfile('main\\Nightmare.exe')
+        except FileNotFoundError as e:
             f = open('FatalErrorDownloading.ini', 'w+')
+            f.write(str(e))
             f.close()
 
 
-except BaseException:
+except BaseException as e:
     try:
         startfile('main\\Nightmare.exe')
         f = open('FatalErrorDownloading.ini', 'w+')
+        f.write(str(e))
         f.close()
-    except FileNotFoundError:
+    except FileNotFoundError as e:
         f = open('FatalErrorDownloading.ini', 'w+')
+        f.write(str(e))
         f.close()
