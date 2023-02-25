@@ -5,7 +5,7 @@ from shutil import rmtree, move
 from winsound import PlaySound, SND_FILENAME
 import sys
 
-sys.stdout = open("outputUpdate.txt", 'w')
+sys.stdout = open("outputUpdate.txt", 'w+')
 
 real_path = path.join(path.abspath(path.dirname(__file__)), 'main')
 try:
