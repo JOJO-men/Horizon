@@ -51,7 +51,10 @@ try:
         rmtree(real_path)
         Repo.clone_from('https://github.com/JOJO-men/Horizon', 'main')
         try:
-            move("main\\settings.exe", getcwd())
+            try:
+                move("main\\settings.exe", getcwd())
+            except FileNotFoundError:
+                pass
             try:
                 move("ConfigGames.ini", "main\\cfg")
             except FileNotFoundError:
