@@ -107,11 +107,6 @@ try:
                 move("web4.lnk", "main\\games\\")
             except FileNotFoundError:
                 pass
-            try:
-                move(getcwd(), "main\\outputsettings.txt")
-                move(getcwd(), "main\\outputUpdate.txt")
-            except FileNotFoundError:
-                pass
             startfile('settings.exe')
         except FileNotFoundError:
             f = open('FatalErrorDownloading.ini', 'w+')

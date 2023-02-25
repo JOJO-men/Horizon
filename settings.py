@@ -3,9 +3,6 @@ from pathlib import Path
 from win32com.client import Dispatch
 from os import path, getcwd, startfile, listdir, remove
 from shutil import copyfile
-import sys
-
-sys.stdout = open("outputsettings.txt", 'w')
 
 
 def create_shortcut(file_name: str, target: str, work_dir: str, arguments: str = ''):
