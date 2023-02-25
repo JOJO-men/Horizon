@@ -14,7 +14,7 @@ def create_shortcut(file_name: str, target: str, work_dir: str, arguments: str =
     shortcut.save()
 
 
-if input("сброс картинок(1) или полная настройка(0) ((Напишите 1 или 0)): ") == 0:
+if input("сброс картинок(1) или полная настройка(0) ((Напишите 1 или 0)): ") == "0":
     for i in range(1, 9):
         config = configparser.ConfigParser()
         config.read('main\\cfg\\ConfigGames.ini')
@@ -51,8 +51,8 @@ if input("сброс картинок(1) или полная настройка(
         copyfile(input("путь до превьюшки(фона кнопки)(обязательно .png): "), f'main\\icons\\web{i}.png')
     startfile('main\\Nightmare.exe')
 else:
-    for f in listdir("icons"):
-        remove(path.join("icons", f))
+    for f in listdir("main\\icons"):
+        remove(path.join("main\\icons", f))
     print("все вревьюшки удалены")
     for i in range(1, 9):
         print("\n\n\n\n\n\n")
