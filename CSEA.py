@@ -18,7 +18,10 @@ except BaseException:
     gamenumber = config["CurrectGame"]["GameNumber"]
     proccesname = config[gamenumber]["ProccesName"]
 if proccesname == "NONE.NONE":
-    startfile(r'Nightmare.exe')
+    try:
+        startfile(r'Nightmare.exe')
+    except (OSError, IOError):
+        startfile(r'main\Nightmare.exe')
     sys.exit("указан NONE.NONE")
 times = config["TimeToStartTheGameWithAMargin"]["TimeInSeconds"]
 rate = config["HowManyTimesDoesItTakeMoreTimeFromTheFirstLaunch"]["rate"]
