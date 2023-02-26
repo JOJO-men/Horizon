@@ -551,10 +551,13 @@ if __name__ == '__main__':
                 im.close()
         except BaseException:
             pass
-    try:
-        remove("main\\first_launch.txt")
-    except (OSError, IOError):
-        remove("first_launch.txt")
+        try:
+            remove("main\\first_launch.txt")
+        except (OSError, IOError):
+            try:
+                remove("first_launch.txt")
+            except (OSError, IOError):
+                pass
 
     try:
         game1 = PhotoImage(file=f"{getcwd()}\\main\\icons\\game1.png")
