@@ -9,9 +9,14 @@ import sys
 sys.stdout = open("outputCSEA.txt", 'w')
 
 config = ConfigParser()  # создаём объекта парсера
-config.read("cfg\\currectGame.ini")
-gamenumber = config["CurrectGame"]["GameNumber"]
-proccesname = config[gamenumber]["ProccesName"]
+try:
+    config.read("cfg\\currectGame.ini")
+    gamenumber = config["CurrectGame"]["GameNumber"]
+    proccesname = config[gamenumber]["ProccesName"]
+except BaseException:
+    config.read("main\\cfg\\currectGame.ini")
+    gamenumber = config["CurrectGame"]["GameNumber"]
+    proccesname = config[gamenumber]["ProccesName"]
 if proccesname == "NONE.NONE":
     startfile(r'Nightmare.exe')
     sys.exit("указан NONE.NONE")
@@ -31,4 +36,7 @@ def check():
 while check() != 1:
     sleep(float(times))
 
-startfile(r'Nightmare.exe')
+try:
+    startfile(r'Nightmare.exe')
+except (OSError, IOError):
+    startfile(r'main\Nightmare.exe')
