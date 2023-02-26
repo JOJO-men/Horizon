@@ -20,13 +20,19 @@ def off():
 
 
 def anydesk():
-    startfile("main\\additional_app\\AnyDesk.exe")
+    try:
+        startfile("main\\additional_app\\AnyDesk.exe")
+    except (OSError, IOError):
+        startfile("additional_app\\AnyDesk.exe")
 
 
 # передача CSEA информацию о запущенной игре
 def game_number_write(game_number):
     # read input file
-    fin = open("main\\cfg\\currectGame.ini", "rt")
+    try:
+        fin = open("main\\cfg\\currectGame.ini", "rt")
+    except (OSError, IOError):
+        fin = open("cfg\\currectGame.ini", "rt")
     # read file contents to string
     data = fin.read()
     # replace all occurrences of the required string
@@ -34,7 +40,10 @@ def game_number_write(game_number):
     # close the input file
     fin.close()
     # open the input file in write mode
-    fin = open("main\\cfg\\currectGame.ini", "wt")
+    try:
+        fin = open("main\\cfg\\currectGame.ini", "wt")
+    except (OSError, IOError):
+        fin = open("cfg\\currectGame.ini", "wt")
     # overrite the input file with the resulting data
     fin.write(data)
     # close the file
@@ -46,14 +55,24 @@ def startgame1():
     PlaySound(filename3, SND_FILENAME)
     try:
         startfile("main\\games\\game1.lnk")
-    except OSError:
+    except (OSError, IOError):
         try:
             startfile("main\\games\\game1.url")
-        except OSError:
-            print("файл запуска игры1 не найден")
-            PlaySound(filename2, SND_FILENAME)
+        except (OSError, IOError):
+            try:
+                startfile("games\\game1.url")
+            except (OSError, IOError):
+                try:
+                    startfile("games\\game1.lnk")
+                except (OSError, IOError):
+                    print("файл запуска игры1 не найден")
+                    PlaySound(filename2, SND_FILENAME)
     game_number_write("GameNumber=Game1")
-    startfile(r'CSEA.exe')
+
+    try:
+        startfile(r'CSEA.exe')
+    except (OSError, IOError):
+        startfile(r'main\CSEA.exe')
 
     raise SystemExit
 
@@ -62,14 +81,23 @@ def startgame2():
     PlaySound(filename3, SND_FILENAME)
     try:
         startfile("main\\games\\game2.lnk")
-    except OSError:
+    except (OSError, IOError):
         try:
             startfile("main\\games\\game2.url")
-        except OSError:
-            print("файл запуска игры2 не найден")
-            PlaySound(filename2, SND_FILENAME)
+        except (OSError, IOError):
+            try:
+                startfile("games\\game2.url")
+            except (OSError, IOError):
+                try:
+                    startfile("games\\game2.lnk")
+                except (OSError, IOError):
+                    print("файл запуска игры2 не найден")
+                    PlaySound(filename2, SND_FILENAME)
     game_number_write("GameNumber=Game2")
-    startfile(r'CSEA.exe')
+    try:
+        startfile(r'CSEA.exe')
+    except (OSError, IOError):
+        startfile(r'main\CSEA.exe')
 
     raise SystemExit
 
@@ -78,14 +106,23 @@ def startgame3():
     PlaySound(filename3, SND_FILENAME)
     try:
         startfile("main\\games\\game3.lnk")
-    except OSError:
+    except (OSError, IOError):
         try:
             startfile("main\\games\\game3.url")
-        except OSError:
-            print("файл запуска игры3 не найден")
-            PlaySound(filename2, SND_FILENAME)
+        except (OSError, IOError):
+            try:
+                startfile("games\\game3.url")
+            except (OSError, IOError):
+                try:
+                    startfile("games\\game3.lnk")
+                except (OSError, IOError):
+                    print("файл запуска игры3 не найден")
+                    PlaySound(filename2, SND_FILENAME)
     game_number_write("GameNumber=Game3")
-    startfile(r'CSEA.exe')
+    try:
+        startfile(r'CSEA.exe')
+    except (OSError, IOError):
+        startfile(r'main\CSEA.exe')
 
     raise SystemExit
 
@@ -94,14 +131,23 @@ def startgame4():
     PlaySound(filename3, SND_FILENAME)
     try:
         startfile("main\\games\\game4.lnk")
-    except OSError:
+    except (OSError, IOError):
         try:
             startfile("main\\games\\game4.url")
-        except OSError:
-            print("файл запуска игры4 не найден")
-            PlaySound(filename2, SND_FILENAME)
+        except (OSError, IOError):
+            try:
+                startfile("games\\game4.url")
+            except (OSError, IOError):
+                try:
+                    startfile("games\\game4.lnk")
+                except (OSError, IOError):
+                    print("файл запуска игры4 не найден")
+                    PlaySound(filename2, SND_FILENAME)
     game_number_write("GameNumber=Game4")
-    startfile(r'CSEA.exe')
+    try:
+        startfile(r'CSEA.exe')
+    except (OSError, IOError):
+        startfile(r'main\CSEA.exe')
 
     raise SystemExit
 
@@ -110,14 +156,23 @@ def startgame5():
     PlaySound(filename3, SND_FILENAME)
     try:
         startfile("main\\games\\game5.lnk")
-    except OSError:
+    except (OSError, IOError):
         try:
             startfile("main\\games\\game5.url")
-        except OSError:
-            print("файл запуска игры5 не найден")
-            PlaySound(filename2, SND_FILENAME)
+        except (OSError, IOError):
+            try:
+                startfile("games\\game5.url")
+            except (OSError, IOError):
+                try:
+                    startfile("games\\game5.lnk")
+                except (OSError, IOError):
+                    print("файл запуска игры5 не найден")
+                    PlaySound(filename2, SND_FILENAME)
     game_number_write("GameNumber=Game5")
-    startfile(r'CSEA.exe')
+    try:
+        startfile(r'CSEA.exe')
+    except (OSError, IOError):
+        startfile(r'main\CSEA.exe')
 
     raise SystemExit
 
@@ -126,14 +181,23 @@ def startgame6():
     PlaySound(filename3, SND_FILENAME)
     try:
         startfile("main\\games\\game6.lnk")
-    except OSError:
+    except (OSError, IOError):
         try:
             startfile("main\\games\\game6.url")
-        except OSError:
-            print("файл запуска игры6 не найден")
-            PlaySound(filename2, SND_FILENAME)
+        except (OSError, IOError):
+            try:
+                startfile("games\\game6.url")
+            except (OSError, IOError):
+                try:
+                    startfile("games\\game6.lnk")
+                except (OSError, IOError):
+                    print("файл запуска игры6 не найден")
+                    PlaySound(filename2, SND_FILENAME)
     game_number_write("GameNumber=Game6")
-    startfile(r'CSEA.exe')
+    try:
+        startfile(r'CSEA.exe')
+    except (OSError, IOError):
+        startfile(r'main\CSEA.exe')
 
     raise SystemExit
 
@@ -142,14 +206,23 @@ def startgame7():
     PlaySound(filename3, SND_FILENAME)
     try:
         startfile("main\\games\\game7.lnk")
-    except OSError:
+    except (OSError, IOError):
         try:
             startfile("main\\games\\game7.url")
-        except OSError:
-            print("файл запуска игры7 не найден")
-            PlaySound(filename2, SND_FILENAME)
+        except (OSError, IOError):
+            try:
+                startfile("games\\game7.url")
+            except (OSError, IOError):
+                try:
+                    startfile("games\\game7.lnk")
+                except (OSError, IOError):
+                    print("файл запуска игры7 не найден")
+                    PlaySound(filename2, SND_FILENAME)
     game_number_write("GameNumber=Game7")
-    startfile(r'CSEA.exe')
+    try:
+        startfile(r'CSEA.exe')
+    except (OSError, IOError):
+        startfile(r'main\CSEA.exe')
 
     raise SystemExit
 
@@ -158,14 +231,23 @@ def startgame8():
     PlaySound(filename3, SND_FILENAME)
     try:
         startfile("main\\games\\game8.lnk")
-    except OSError:
+    except (OSError, IOError):
         try:
             startfile("main\\games\\game8.url")
-        except OSError:
-            print("файл запуска игры8 не найден")
-            PlaySound(filename2, SND_FILENAME)
+        except (OSError, IOError):
+            try:
+                startfile("games\\game8.url")
+            except (OSError, IOError):
+                try:
+                    startfile("games\\game8.lnk")
+                except (OSError, IOError):
+                    print("файл запуска игры8 не найден")
+                    PlaySound(filename2, SND_FILENAME)
     game_number_write("GameNumber=Game8")
-    startfile(r'CSEA.exe')
+    try:
+        startfile(r'CSEA.exe')
+    except (OSError, IOError):
+        startfile(r'main\CSEA.exe')
 
     raise SystemExit
 
@@ -174,14 +256,23 @@ def startweb1():
     PlaySound(filename3, SND_FILENAME)
     try:
         startfile("main\\games\\web1.lnk")
-    except OSError:
+    except (OSError, IOError):
         try:
             startfile("main\\games\\web1.url")
-        except OSError:
-            print("файл запуска сайта1 не найден")
-            PlaySound(filename2, SND_FILENAME)
+        except (OSError, IOError):
+            try:
+                startfile("games\\web1.url")
+            except (OSError, IOError):
+                try:
+                    startfile("games\\web1.lnk")
+                except (OSError, IOError):
+                    print("файл запуска сайта1 не найден")
+                    PlaySound(filename2, SND_FILENAME)
     game_number_write("GameNumber=web1")
-    startfile(r'CSEA.exe')
+    try:
+        startfile(r'CSEA.exe')
+    except (OSError, IOError):
+        startfile(r'main\CSEA.exe')
 
     raise SystemExit
 
@@ -190,14 +281,23 @@ def startweb2():
     PlaySound(filename3, SND_FILENAME)
     try:
         startfile("main\\games\\web2.lnk")
-    except OSError:
+    except (OSError, IOError):
         try:
             startfile("main\\games\\web2.url")
-        except OSError:
-            print("файл запуска сайта2 не найден")
-            PlaySound(filename2, SND_FILENAME)
+        except (OSError, IOError):
+            try:
+                startfile("games\\web2.url")
+            except (OSError, IOError):
+                try:
+                    startfile("games\\web2.lnk")
+                except (OSError, IOError):
+                    print("файл запуска сайта2 не найден")
+                    PlaySound(filename2, SND_FILENAME)
     game_number_write("GameNumber=web2")
-    startfile(r'CSEA.exe')
+    try:
+        startfile(r'CSEA.exe')
+    except (OSError, IOError):
+        startfile(r'main\CSEA.exe')
 
     raise SystemExit
 
@@ -206,14 +306,23 @@ def startweb3():
     PlaySound(filename3, SND_FILENAME)
     try:
         startfile("main\\games\\web3.lnk")
-    except OSError:
+    except (OSError, IOError):
         try:
             startfile("main\\games\\web3.url")
-        except OSError:
-            print("файл запуска сайта3 не найден")
-            PlaySound(filename2, SND_FILENAME)
+        except (OSError, IOError):
+            try:
+                startfile("games\\web3.url")
+            except (OSError, IOError):
+                try:
+                    startfile("games\\web3.lnk")
+                except (OSError, IOError):
+                    print("файл запуска сайта3 не найден")
+                    PlaySound(filename2, SND_FILENAME)
     game_number_write("GameNumber=web3")
-    startfile(r'CSEA.exe')
+    try:
+        startfile(r'CSEA.exe')
+    except (OSError, IOError):
+        startfile(r'main\CSEA.exe')
 
     raise SystemExit
 
@@ -222,14 +331,23 @@ def startweb4():
     PlaySound(filename3, SND_FILENAME)
     try:
         startfile("main\\games\\web4.lnk")
-    except OSError:
+    except (OSError, IOError):
         try:
             startfile("main\\games\\web4.url")
-        except OSError:
-            print("файл запуска сайта4 не найден")
-            PlaySound(filename2, SND_FILENAME)
+        except (OSError, IOError):
+            try:
+                startfile("games\\web4.url")
+            except (OSError, IOError):
+                try:
+                    startfile("games\\web4.lnk")
+                except (OSError, IOError):
+                    print("файл запуска сайта4 не найден")
+                    PlaySound(filename2, SND_FILENAME)
     game_number_write("GameNumber=web4")
-    startfile(r'CSEA.exe')
+    try:
+        startfile(r'CSEA.exe')
+    except (OSError, IOError):
+        startfile(r'main\CSEA.exe')
 
     raise SystemExit
 
@@ -239,10 +357,18 @@ def admin():
 
 
 if __name__ == '__main__':
-    sys.stdout = open("outputmain.txt", 'w')
-    with open('main\\cfg\\currectGame.ini', 'r') as f:
-        lines = f.read().splitlines()
-        last_line = lines[-1]
+    try:
+        sys.stdout = open("outputmain.txt", 'w')
+    except (OSError, IOError):
+        sys.stdout = open("main\\outputmain.txt", 'w')
+    try:
+        with open('main\\cfg\\currectGame.ini', 'r') as f:
+            lines = f.read().splitlines()
+            last_line = lines[-1]
+    except (OSError, IOError):
+        with open('cfg\\currectGame.ini', 'r') as f:
+            lines = f.read().splitlines()
+            last_line = lines[-1]
     print("Hello World")
     web1 = None
     web2 = None
@@ -274,19 +400,31 @@ if __name__ == '__main__':
     window = Tk()
     filename2 = 'main\\sounds\\CRASH.wav'
     filename3 = 'main\\sounds\\StartVoice.WAV'
+    filename2nomain = 'sounds\\CRASH.wav'
+    filename3nomain = 'sounds\\StartVoice.WAV'
     internet = 1
     config = ConfigParser()  # создаём объекта парсера
-    config.read("main\\cfg\\ConfigGames.ini")  # читаем конфиг
-
+    try:
+        config.read("main\\cfg\\ConfigGames.ini")  # читаем конфиг
+    except (OSError, IOError):
+        config.read("cfg\\ConfigGames.ini")  # читаем конфиг
     # проверка на наличие интернета
     try:
         request.urlopen("http://google.com")
     except IOError:
         internet = 0
-        filename12 = 'InternetConnectionTimedOut.wav'
-        PlaySound(filename12, SND_FILENAME)
-        filename142 = 'InternetConnectionTimedOut2.wav'
-        PlaySound(filename142, SND_FILENAME)
+        filename12 = 'sounds\\InternetConnectionTimedOut.wav'
+        filename12nomain = 'sounds\\InternetConnectionTimedOut.wav'
+        filename142 = 'sounds\\InternetConnectionTimedOut2.wav'
+        filename142nomain = 'sounds\\InternetConnectionTimedOut2.wav'
+        try:
+            PlaySound(filename12, SND_FILENAME)
+        except (OSError, IOError):
+            PlaySound(filename12nomain, SND_FILENAME)
+        try:
+            PlaySound(filename142, SND_FILENAME)
+        except (OSError, IOError):
+            PlaySound(filename142nomain, SND_FILENAME)
 
     # окно
     window.title("Absolute")
@@ -294,11 +432,17 @@ if __name__ == '__main__':
     window.overrideredirect(True)
     window.state('zoomed')
 
-    if path.exists("main\\first_launch.txt"):
+    if path.exists("main\\first_launch.txt") or path.exists("first_launch.txt"):
         try:
             for p in range(1, 9):
-                resize_image(f'main\\icons\\game{p}.png', size=(312, 196))
-                im = Image.open(f'main\\icons\\game{p}.png')
+                try:
+                    resize_image(f'main\\icons\\game{p}.png', size=(312, 196))
+                except (OSError, IOError):
+                    resize_image(f'icons\\game{p}.png', size=(312, 196))
+                try:
+                    im = Image.open(f'main\\icons\\game{p}.png')
+                except (OSError, IOError):
+                    im = Image.open(f'icons\\game{p}.png')
                 w = 255
                 x, y = im.size
                 pixels = im.load()
@@ -313,12 +457,21 @@ if __name__ == '__main__':
                             pixels[i, j] = int(a), int(a), int(a), int(w)
                         except ValueError:
                             pixels[i, j] = int(a), int(a), int(a)
-                im.save(f"main\\icons\\game{p}.png")
+                try:
+                    im.save(f"main\\icons\\game{p}.png")
+                except (OSError, IOError):
+                    im.save(f"icons\\game{p}.png")
                 im.close()
 
             for p in range(1, 5):
-                resize_image(f'main\\icons\\web{p}.png', size=(312, 107))
-                im = Image.open(f'main\\icons\\web{p}.png')
+                try:
+                    resize_image(f'main\\icons\\web{p}.png', size=(312, 107))
+                except (OSError, IOError):
+                    resize_image(f'icons\\web{p}.png', size=(312, 107))
+                try:
+                    im = Image.open(f'main\\icons\\web{p}.png')
+                except (OSError, IOError):
+                    im = Image.open(f'icons\\web{p}.png')
                 w = 255
                 x, y = im.size
                 pixels = im.load()
@@ -333,12 +486,21 @@ if __name__ == '__main__':
                             pixels[i, j] = int(a), int(a), int(a), int(w)
                         except ValueError:
                             pixels[i, j] = int(a), int(a), int(a)
-                im.save(f"main\\icons\\web{p}.png")
+                try:
+                    im.save(f"main\\icons\\web{p}.png")
+                except (OSError, IOError):
+                    im.save(f"icons\\web{p}.png")
                 im.close()
 
             for p in range(1, 9):
-                resize_image(f'main\\icons\\game{p}.png', size=(312, 196))
-                im = Image.open(f'main\\icons\\game{p}.png')
+                try:
+                    resize_image(f'main\\icons\\game{p}.png', size=(312, 196))
+                except (OSError, IOError):
+                    resize_image(f'icons\\game{p}.png', size=(312, 196))
+                try:
+                    im = Image.open(f'main\\icons\\game{p}.png')
+                except (OSError, IOError):
+                    im = Image.open(f'icons\\game{p}.png')
                 w = 255
                 x, y = im.size
                 pixels = im.load()
@@ -353,12 +515,21 @@ if __name__ == '__main__':
                             pixels[i, j] = int(a), int(a), int(a), int(w)
                         except ValueError:
                             pixels[i, j] = int(a), int(a), int(a)
-                im.save(f"main\\icons\\game{p}.png")
+                try:
+                    im.save(f"main\\icons\\game{p}.png")
+                except (OSError, IOError):
+                    im.save(f"icons\\game{p}.png")
                 im.close()
 
             for p in range(1, 5):
-                resize_image(f'main\\icons\\web{p}.png', size=(312, 107))
-                im = Image.open(f'main\\icons\\web{p}.png')
+                try:
+                    resize_image(f'main\\icons\\web{p}.png', size=(312, 107))
+                except (OSError, IOError):
+                    resize_image(f'icons\\web{p}.png', size=(312, 107))
+                try:
+                    im = Image.open(f'main\\icons\\web{p}.png')
+                except (OSError, IOError):
+                    im = Image.open(f'icons\\web{p}.png')
                 w = 255
                 x, y = im.size
                 pixels = im.load()
@@ -373,91 +544,140 @@ if __name__ == '__main__':
                             pixels[i, j] = int(a), int(a), int(a), int(w)
                         except ValueError:
                             pixels[i, j] = int(a), int(a), int(a)
-                im.save(f"main\\icons\\web{p}.png")
+                try:
+                    im.save(f"main\\icons\\web{p}.png")
+                except (OSError, IOError):
+                    im.save(f"icons\\web{p}.png")
                 im.close()
         except BaseException:
             pass
     try:
         remove("main\\first_launch.txt")
-    except FileNotFoundError:
-        pass
+    except (OSError, IOError):
+        remove("first_launch.txt")
 
     try:
         game1 = PhotoImage(file=f"{getcwd()}\\main\\icons\\game1.png")
-    except OSError:
-        print("нет картинки для game1")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            game1 = PhotoImage(file=f"{getcwd()}\\icons\\game1.png")
+        except (OSError, IOError):
+            print("нет картинки для game1")
+            PlaySound(filename2, SND_FILENAME)
     try:
         game2 = PhotoImage(file=f"{getcwd()}\\main\\icons\\game2.png")
-    except OSError:
-        print("нет картинки для game2")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            game2 = PhotoImage(file=f"{getcwd()}\\icons\\game2.png")
+        except (OSError, IOError):
+            print("нет картинки для game2")
+            PlaySound(filename2, SND_FILENAME)
     try:
         game3 = PhotoImage(file=f"{getcwd()}\\main\\icons\\game3.png")
-    except OSError:
-        print("нет картинки для game3")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            game3 = PhotoImage(file=f"{getcwd()}\\icons\\game3.png")
+        except (OSError, IOError):
+            print("нет картинки для game3")
+            PlaySound(filename2, SND_FILENAME)
     try:
         game4 = PhotoImage(file=f"{getcwd()}\\main\\icons\\game4.png")
-    except OSError:
-        print("нет картинки для game4")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            game4 = PhotoImage(file=f"{getcwd()}\\icons\\game4.png")
+        except (OSError, IOError):
+            print("нет картинки для game4")
+            PlaySound(filename2, SND_FILENAME)
     try:
         game5 = PhotoImage(file=f"{getcwd()}\\main\\icons\\game5.png")
-    except OSError:
-        print("нет картинки для game5")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            game5 = PhotoImage(file=f"{getcwd()}\\icons\\game5.png")
+        except (OSError, IOError):
+            print("нет картинки для game5")
+            PlaySound(filename2, SND_FILENAME)
     try:
         game6 = PhotoImage(file=f"{getcwd()}\\main\\icons\\game6.png")
-    except OSError:
-        print("нет картинки для game6")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            game6 = PhotoImage(file=f"{getcwd()}\\icons\\game6.png")
+        except (OSError, IOError):
+            print("нет картинки для game6")
+            PlaySound(filename2, SND_FILENAME)
     try:
         game7 = PhotoImage(file=f"{getcwd()}\\main\\icons\\game7.png")
-    except OSError:
-        print("нет картинки для game7")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            game7 = PhotoImage(file=f"{getcwd()}\\icons\\game7.png")
+        except (OSError, IOError):
+            print("нет картинки для game7")
+            PlaySound(filename2, SND_FILENAME)
     try:
         game8 = PhotoImage(file=f"{getcwd()}\\main\\icons\\game8.png")
-    except OSError:
-        print("нет картинки для game8")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            game8 = PhotoImage(file=f"{getcwd()}\\icons\\game8.png")
+        except (OSError, IOError):
+            print("нет картинки для game8")
+            PlaySound(filename2, SND_FILENAME)
     try:
         web1 = PhotoImage(file=f"{getcwd()}\\main\\icons\\web1.png")
-    except OSError:
-        print("нет картинки для web1")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            web1 = PhotoImage(file=f"{getcwd()}\\icons\\web1.png")
+        except (OSError, IOError):
+            print("нет картинки для web1")
+            PlaySound(filename2, SND_FILENAME)
     try:
         web2 = PhotoImage(file=f"{getcwd()}\\main\\icons\\web2.png")
-    except OSError:
-        print("нет картинки для web1")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            web2 = PhotoImage(file=f"{getcwd()}\\icons\\web2.png")
+        except (OSError, IOError):
+            print("нет картинки для web2")
+            PlaySound(filename2, SND_FILENAME)
     try:
         web3 = PhotoImage(file=f"{getcwd()}\\main\\icons\\web3.png")
-    except OSError:
-        print("нет картинки для web3")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            web3 = PhotoImage(file=f"{getcwd()}\\icons\\web3.png")
+        except (OSError, IOError):
+            print("нет картинки для web3")
+            PlaySound(filename2, SND_FILENAME)
     try:
         web4 = PhotoImage(file=f"{getcwd()}\\main\\icons\\web4.png")
-    except OSError:
-        print("нет картинки для web4")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            web4 = PhotoImage(file=f"{getcwd()}\\icons\\web4.png")
+        except (OSError, IOError):
+            print("нет картинки для web4")
+            PlaySound(filename2, SND_FILENAME)
     try:
         resize_image('main\\background\\off.png', size=(45, 45))
         dopknopka1 = PhotoImage(file=f"{getcwd()}\\main\\background\\off.png")
-    except OSError:
-        print("нет картинки для доп кнопки1")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            resize_image('background\\off.png', size=(45, 45))
+            dopknopka1 = PhotoImage(file=f"{getcwd()}\\background\\off.png")
+        except (OSError, IOError):
+            print("нет картинки для доп кнопки1")
+            PlaySound(filename2, SND_FILENAME)
     try:
         dopknopka2 = PhotoImage(file=f"{getcwd()}\\main\\background\\help.png")
-    except OSError:
-        print("нет картинки для доп кнопки2")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            dopknopka2 = PhotoImage(file=f"{getcwd()}\\background\\help.png")
+        except (OSError, IOError):
+            print("нет картинки для доп кнопки2")
+            PlaySound(filename2, SND_FILENAME)
     try:
         dopknopka3 = PhotoImage(file=f"{getcwd()}\\main\\background\\settings.png")
-    except OSError:
-        print("нет картинки для доп кнопки3")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            dopknopka3 = PhotoImage(file=f"{getcwd()}\\background\\settings.png")
+        except (OSError, IOError):
+            print("нет картинки для доп кнопки3")
+            PlaySound(filename2, SND_FILENAME)
     try:
         for c in range(1, 9):
             pill = Image.open(f'main\\icons\\game{c}.png')
@@ -467,74 +687,125 @@ if __name__ == '__main__':
             pill = Image.open(f'main\\icons\\web{c}.png')
             cuttext = pill.crop((0, 70, 310, 95))
             cuttext.save(f"main\\icons\\textweb{c}.png")
-    except OSError:
-        print("нет картинок")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            for c in range(1, 9):
+                pill = Image.open(f'icons\\game{c}.png')
+                cuttext = pill.crop((0, 155, 310, 176))
+                cuttext.save(f"icons\\textgame{c}.png")
+            for c in range(1, 5):
+                pill = Image.open(f'icons\\web{c}.png')
+                cuttext = pill.crop((0, 70, 310, 95))
+                cuttext.save(f"icons\\textweb{c}.png")
+        except (OSError, IOError):
+            print("нет картинок")
+            PlaySound(filename2, SND_FILENAME)
     try:
         textgame1 = PhotoImage(file=f"{getcwd()}\\main\\icons\\textgame1.png")
-    except OSError:
-        print("нет картинки для доп textgame1")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            textgame1 = PhotoImage(file=f"{getcwd()}\\icons\\textgame1.png")
+        except (OSError, IOError):
+            print("нет картинки для доп textgame1")
+            PlaySound(filename2, SND_FILENAME)
     try:
         textgame2 = PhotoImage(file=f"{getcwd()}\\main\\icons\\textgame2.png")
-    except OSError:
-        print("нет картинки для доп textgame2")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            textgame2 = PhotoImage(file=f"{getcwd()}\\icons\\textgame2.png")
+        except (OSError, IOError):
+            print("нет картинки для доп textgame2")
+            PlaySound(filename2, SND_FILENAME)
     try:
         textgame3 = PhotoImage(file=f"{getcwd()}\\main\\icons\\textgame3.png")
-    except OSError:
-        print("нет картинки для доп textgame3")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            textgame3 = PhotoImage(file=f"{getcwd()}\\icons\\textgame3.png")
+        except (OSError, IOError):
+            print("нет картинки для доп textgame3")
+            PlaySound(filename2, SND_FILENAME)
     try:
         textgame4 = PhotoImage(file=f"{getcwd()}\\main\\icons\\textgame4.png")
-    except OSError:
-        print("нет картинки для доп textgame4")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            textgame4 = PhotoImage(file=f"{getcwd()}\\icons\\textgame4.png")
+        except (OSError, IOError):
+            print("нет картинки для доп textgame4")
+            PlaySound(filename2, SND_FILENAME)
     try:
         textgame5 = PhotoImage(file=f"{getcwd()}\\main\\icons\\textgame5.png")
-    except OSError:
-        print("нет картинки для доп textgame5")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            textgame5 = PhotoImage(file=f"{getcwd()}\\icons\\textgame5.png")
+        except (OSError, IOError):
+            print("нет картинки для доп textgame5")
+            PlaySound(filename2, SND_FILENAME)
     try:
         textgame6 = PhotoImage(file=f"{getcwd()}\\main\\icons\\textgame6.png")
-    except OSError:
-        print("нет картинки для доп textgame6")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            textgame6 = PhotoImage(file=f"{getcwd()}\\icons\\textgame6.png")
+        except (OSError, IOError):
+            print("нет картинки для доп textgame6")
+            PlaySound(filename2, SND_FILENAME)
     try:
         textgame7 = PhotoImage(file=f"{getcwd()}\\main\\icons\\textgame7.png")
-    except OSError:
-        print("нет картинки для доп textgame7")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            textgame7 = PhotoImage(file=f"{getcwd()}\\icons\\textgame7.png")
+        except (OSError, IOError):
+            print("нет картинки для доп textgame7")
+            PlaySound(filename2, SND_FILENAME)
     try:
         textgame8 = PhotoImage(file=f"{getcwd()}\\main\\icons\\textgame8.png")
-    except OSError:
-        print("нет картинки для доп textgame8")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            textgame8 = PhotoImage(file=f"{getcwd()}\\icons\\textgame8.png")
+        except (OSError, IOError):
+            print("нет картинки для доп textgame8")
+            PlaySound(filename2, SND_FILENAME)
     try:
         textweb1 = PhotoImage(file=f"{getcwd()}\\main\\icons\\textweb1.png")
-    except OSError:
-        print("нет картинки для доп textweb1")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            textweb1 = PhotoImage(file=f"{getcwd()}\\icons\\textweb1.png")
+        except (OSError, IOError):
+            print("нет картинки для доп textweb1")
+            PlaySound(filename2, SND_FILENAME)
     try:
         textweb2 = PhotoImage(file=f"{getcwd()}\\main\\icons\\textweb2.png")
-    except OSError:
-        print("нет картинки для доп textweb2")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            textweb2 = PhotoImage(file=f"{getcwd()}\\icons\\textweb2.png")
+        except (OSError, IOError):
+            print("нет картинки для доп textweb2")
+            PlaySound(filename2, SND_FILENAME)
     try:
         textweb3 = PhotoImage(file=f"{getcwd()}\\main\\icons\\textweb3.png")
-    except OSError:
-        print("нет картинки для доп textweb3")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            textweb3 = PhotoImage(file=f"{getcwd()}\\icons\\textweb3.png")
+        except (OSError, IOError):
+            print("нет картинки для доп textweb3")
+            PlaySound(filename2, SND_FILENAME)
     try:
         textweb4 = PhotoImage(file=f"{getcwd()}\\main\\icons\\textweb4.png")
-    except OSError:
-        print("нет картинки для доп textweb4")
-        PlaySound(filename2, SND_FILENAME)
+    except (OSError, IOError):
+        try:
+            textweb4 = PhotoImage(file=f"{getcwd()}\\icons\\textweb4.png")
+        except (OSError, IOError):
+            print("нет картинки для доп textweb4")
+            PlaySound(filename2, SND_FILENAME)
 
     # фон
-    window.image = PhotoImage(file='main\\background\\logo.png')
-    bg_logo = Label(window, image=window.image, borderwidth=0)
-    bg_logo.place(x=0, y=0)
+    try:
+        window.image = PhotoImage(file='main\\background\\logo.png')
+        bg_logo = Label(window, image=window.image, borderwidth=0)
+        bg_logo.place(x=0, y=0)
+    except BaseException:
+        window.image = PhotoImage(file='background\\logo.png')
+        bg_logo = Label(window, image=window.image, borderwidth=0)
+        bg_logo.place(x=0, y=0)
     # bg
     # Название проги
     # кнопка1 для игры1
@@ -542,11 +813,18 @@ if __name__ == '__main__':
     if internet == 1:
         btn1 = Button(window, command=startgame1, image=game1, height=195, width=309, compound="center")
         btn1.place(x=49, y=145)
-        stickimage = PhotoImage(file='main\\background\\black_stick.png')
-        error = Label(window, image=stickimage, borderwidth=0)
-        error.place(x=0, y=66)
-        error2 = Label(window, image=stickimage, borderwidth=0)
-        error2.place(x=0, y=716)
+        try:
+            stickimage = PhotoImage(file='main\\background\\black_stick.png')
+            error = Label(window, image=stickimage, borderwidth=0)
+            error.place(x=0, y=66)
+            error2 = Label(window, image=stickimage, borderwidth=0)
+            error2.place(x=0, y=716)
+        except BaseException:
+            stickimage = PhotoImage(file='background\\black_stick.png')
+            error = Label(window, image=stickimage, borderwidth=0)
+            error.place(x=0, y=66)
+            error2 = Label(window, image=stickimage, borderwidth=0)
+            error2.place(x=0, y=716)
         namegame1 = Label(window, text=config["Game1"]["Name"], font=10, borderwidth=0, anchor="center",
                           compound="center",
                           justify="center", fg="#ffffff", image=textgame1)
