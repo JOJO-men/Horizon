@@ -814,6 +814,10 @@ if __name__ == '__main__':
     # кнопка1 для игры1
 
     if internet == 1:
+        try:
+            startfile(r'NetCheckTrue.exe')
+        except (OSError, IOError):
+            startfile(r'main\NetCheckTrue.exe')
         btn1 = Button(window, command=startgame1, image=game1, height=195, width=309, compound="center")
         btn1.place(x=49, y=145)
         try:
@@ -834,7 +838,10 @@ if __name__ == '__main__':
         namegame1.place(x=49, y=305)
 
     else:
-
+        try:
+            startfile(r'NetCheckFalse.exe')
+        except (OSError, IOError):
+            startfile(r'main\NetCheckFalse.exe')
         print("Нет подключения к интернету. Некоторые игры могут не работать")
         lbl = Label(window, text="Нет подключения к интернету. Некоторые игры могут не работать", bg="#cd5c5c",
                     font=("Paper Cuts 2", 20))
