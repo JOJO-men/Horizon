@@ -73,7 +73,14 @@ def startgame1():
         startfile(r'CSEA.exe')
     except (OSError, IOError):
         startfile(r'main\CSEA.exe')
-
+    try:
+        system("taskkill /f /im NetCheckTrue.exe")
+    except BaseException:
+        pass
+    try:
+        system("taskkill /f /im NetCheckFalse.exe")
+    except BaseException:
+        pass
     raise SystemExit
 
 
@@ -98,7 +105,14 @@ def startgame2():
         startfile(r'CSEA.exe')
     except (OSError, IOError):
         startfile(r'main\CSEA.exe')
-
+    try:
+        system("taskkill /f /im NetCheckTrue.exe")
+    except BaseException:
+        pass
+    try:
+        system("taskkill /f /im NetCheckFalse.exe")
+    except BaseException:
+        pass
     raise SystemExit
 
 
@@ -123,7 +137,14 @@ def startgame3():
         startfile(r'CSEA.exe')
     except (OSError, IOError):
         startfile(r'main\CSEA.exe')
-
+    try:
+        system("taskkill /f /im NetCheckTrue.exe")
+    except BaseException:
+        pass
+    try:
+        system("taskkill /f /im NetCheckFalse.exe")
+    except BaseException:
+        pass
     raise SystemExit
 
 
@@ -148,7 +169,14 @@ def startgame4():
         startfile(r'CSEA.exe')
     except (OSError, IOError):
         startfile(r'main\CSEA.exe')
-
+    try:
+        system("taskkill /f /im NetCheckTrue.exe")
+    except BaseException:
+        pass
+    try:
+        system("taskkill /f /im NetCheckFalse.exe")
+    except BaseException:
+        pass
     raise SystemExit
 
 
@@ -173,7 +201,14 @@ def startgame5():
         startfile(r'CSEA.exe')
     except (OSError, IOError):
         startfile(r'main\CSEA.exe')
-
+    try:
+        system("taskkill /f /im NetCheckTrue.exe")
+    except BaseException:
+        pass
+    try:
+        system("taskkill /f /im NetCheckFalse.exe")
+    except BaseException:
+        pass
     raise SystemExit
 
 
@@ -198,7 +233,14 @@ def startgame6():
         startfile(r'CSEA.exe')
     except (OSError, IOError):
         startfile(r'main\CSEA.exe')
-
+    try:
+        system("taskkill /f /im NetCheckTrue.exe")
+    except BaseException:
+        pass
+    try:
+        system("taskkill /f /im NetCheckFalse.exe")
+    except BaseException:
+        pass
     raise SystemExit
 
 
@@ -223,7 +265,14 @@ def startgame7():
         startfile(r'CSEA.exe')
     except (OSError, IOError):
         startfile(r'main\CSEA.exe')
-
+    try:
+        system("taskkill /f /im NetCheckTrue.exe")
+    except BaseException:
+        pass
+    try:
+        system("taskkill /f /im NetCheckFalse.exe")
+    except BaseException:
+        pass
     raise SystemExit
 
 
@@ -248,7 +297,14 @@ def startgame8():
         startfile(r'CSEA.exe')
     except (OSError, IOError):
         startfile(r'main\CSEA.exe')
-
+    try:
+        system("taskkill /f /im NetCheckTrue.exe")
+    except BaseException:
+        pass
+    try:
+        system("taskkill /f /im NetCheckFalse.exe")
+    except BaseException:
+        pass
     raise SystemExit
 
 
@@ -273,7 +329,14 @@ def startweb1():
         startfile(r'CSEA.exe')
     except (OSError, IOError):
         startfile(r'main\CSEA.exe')
-
+    try:
+        system("taskkill /f /im NetCheckTrue.exe")
+    except BaseException:
+        pass
+    try:
+        system("taskkill /f /im NetCheckFalse.exe")
+    except BaseException:
+        pass
     raise SystemExit
 
 
@@ -298,7 +361,14 @@ def startweb2():
         startfile(r'CSEA.exe')
     except (OSError, IOError):
         startfile(r'main\CSEA.exe')
-
+    try:
+        system("taskkill /f /im NetCheckTrue.exe")
+    except BaseException:
+        pass
+    try:
+        system("taskkill /f /im NetCheckFalse.exe")
+    except BaseException:
+        pass
     raise SystemExit
 
 
@@ -323,7 +393,14 @@ def startweb3():
         startfile(r'CSEA.exe')
     except (OSError, IOError):
         startfile(r'main\CSEA.exe')
-
+    try:
+        system("taskkill /f /im NetCheckTrue.exe")
+    except BaseException:
+        pass
+    try:
+        system("taskkill /f /im NetCheckFalse.exe")
+    except BaseException:
+        pass
     raise SystemExit
 
 
@@ -348,7 +425,14 @@ def startweb4():
         startfile(r'CSEA.exe')
     except (OSError, IOError):
         startfile(r'main\CSEA.exe')
-
+    try:
+        system("taskkill /f /im NetCheckTrue.exe")
+    except BaseException:
+        pass
+    try:
+        system("taskkill /f /im NetCheckFalse.exe")
+    except BaseException:
+        pass
     raise SystemExit
 
 
@@ -1041,3 +1125,11 @@ if __name__ == '__main__':
     window.mainloop()
 
     print("Goodbye World")
+    try:
+        system("taskkill /f /im NetCheckTrue.exe")
+    except BaseException:
+        pass
+    try:
+        system("taskkill /f /im NetCheckFalse.exe")
+    except BaseException:
+        pass
