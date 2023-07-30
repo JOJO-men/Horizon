@@ -1,11 +1,12 @@
-from urllib import request
+import socket
 from os import system, startfile
 from time import sleep
 
 
-def is_internet_available():
+def is_internet_available(hostname="www.google.com"):
     try:
-        request.urlopen('http://google.com')
+        host = socket.gethostbyname(hostname)
+        s = socket.create_connection((host, 80), 2)
         return True
     except:
         return False
