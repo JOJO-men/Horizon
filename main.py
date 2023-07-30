@@ -1,13 +1,22 @@
 from tkinter import *
-from urllib import request
 from configparser import ConfigParser
 from winsound import PlaySound, SND_FILENAME
 from os import startfile, system, getcwd, path, remove
 from PIL import Image
 import sys
+import socket
 
 
 # функции
+
+def is_connected(hostname="www.google.com"):
+    try:
+        host = socket.gethostbyname(hostname)
+        s = socket.create_connection((host, 80), 2)
+        return True
+    except:
+        return False
+
 def resize_image(image_path, size):
     original_image = Image.open(image_path)
     resized_image = original_image.resize(size)
@@ -493,9 +502,7 @@ if __name__ == '__main__':
     except (OSError, IOError):
         config.read("cfg\\ConfigGames.ini")  # читаем конфиг
     # проверка на наличие интернета
-    try:
-        request.urlopen("http://google.com")
-    except IOError:
+    if not is_connected():
         internet = 0
         filename12 = 'sounds\\InternetConnectionTimedOut.wav'
         filename12nomain = 'sounds\\InternetConnectionTimedOut.wav'
